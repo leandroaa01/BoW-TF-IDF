@@ -69,5 +69,11 @@ for num_texto, documento in enumerate(corpus, start=1):
     print(f"Texto {num_texto}: {documento}")
 
 print("\nVocabulário:", vocabulario)
+print("\nFórmulas utilizadas:")
+print("BoW(t, d) = quantidade de vezes que o termo t aparece no texto d")
+print("TF(t, d) = quantidade de t em d / total de palavras em d")
+print("IDF(t) = ln((N + 1) / (DF(t) + 1)) + 1")
+print("TF-IDF(t, d) = TF(t, d) * IDF(t)")
+print("N = número de textos no corpus; DF(t) = número de textos que contêm t")
 mostrar_matriz("BoW (contagem de palavras):", bow)
 mostrar_matriz("TF-IDF:", tf_idf)
