@@ -52,16 +52,13 @@ for tokens, contagens in zip(tokens_por_texto, bow):
     tf_idf.append(pesos_documento) # cada documento recebe um dicionário com os pesos TF-IDF de cada palavra do vocabulário
 
 
-# Função para exibir a matriz de contagem de palavras ou TF-IDF de forma legível.
+# Exibe os documentos nas linhas e as palavras do vocabulário nas colunas.
 def mostrar_matriz(titulo, matriz):
     print(f"\n{titulo}")
+    print("Texto\t" + "\t".join(vocabulario))
     for id_documento, vetor in enumerate(matriz, start=1):
-        valores = {
-            palavra: round(valor, 3)
-            for palavra, valor in vetor.items()
-            if valor > 0
-        }
-        print(f"Texto {id_documento}: {valores}")
+        valores = [str(round(vetor[palavra], 3)) for palavra in vocabulario]
+        print(f"D{id_documento}\t" + "\t".join(valores))
 
 
 print("Corpus:")

@@ -1,0 +1,46 @@
+Corpus:
+Texto 1: gato gosta de leite
+Texto 2: cachorro gosta de passear
+Texto 3: gato e cachorro brincam
+Texto 4: estudante aprende Python na escola
+Texto 5: estudante estuda Python para aprender
+Texto 6: professora ensina Python na escola
+Texto 7: sol aquece a praia
+Texto 8: praia tem areia e sol
+Texto 9: chuva molha a rua
+Texto 10: chuva e vento chegaram
+
+Vocabulário: ['a', 'aprende', 'aprender', 'aquece', 'areia', 'brincam', 'cachorro', 'chegaram', 'chuva', 'de', 'e', 'ensina', 'escola', 'estuda', 'estudante', 'gato', 'gosta', 'leite', 'molha', 'na', 'para', 'passear', 'praia', 'professora', 'python', 'rua', 'sol', 'tem', 'vento']
+
+Fórmulas utilizadas:
+BoW(t, d) = quantidade de vezes que o termo t aparece no texto d
+TF(t, d) = quantidade de t em d / total de palavras em d
+IDF(t) = ln((N + 1) / (DF(t) + 1)) + 1
+TF-IDF(t, d) = TF(t, d) * IDF(t)
+N = número de textos no corpus; DF(t) = número de textos que contêm t
+
+BoW (contagem de palavras):
+Texto	a	aprende	aprender	aquece	areia	brincam	cachorro	chegaram	chuva	de	e	ensina	escola	estuda	estudante	gato	gosta	leite	molha	na	para	passear	praia	professora	python	rua	sol	tem	vento
+D1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	1	1	1	0	0	0	0	0	0	0	0	0	0	0
+D2	0	0	0	0	0	0	1	0	0	1	0	0	0	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0
+D3	0	0	0	0	0	1	1	0	0	0	1	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0
+D4	0	1	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0
+D5	0	0	1	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0	0	0	1	0	0	0	1	0	0	0	0
+D6	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0	0	0	0	1	0	0	0	1	1	0	0	0	0
+D7	1	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0
+D8	0	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	1	0
+D9	1	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	1	0	0	0
+D10	0	0	0	0	0	0	0	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
+
+TF-IDF:
+Texto	a	aprende	aprender	aquece	areia	brincam	cachorro	chegaram	chuva	de	e	ensina	escola	estuda	estudante	gato	gosta	leite	molha	na	para	passear	praia	professora	python	rua	sol	tem	vento
+D1	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.575	0.0	0.0	0.0	0.0	0.0	0.575	0.575	0.676	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+D2	0.0	0.0	0.0	0.0	0.0	0.0	0.575	0.0	0.0	0.575	0.0	0.0	0.0	0.0	0.0	0.0	0.575	0.0	0.0	0.0	0.0	0.676	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+D3	0.0	0.0	0.0	0.0	0.0	0.676	0.575	0.0	0.0	0.0	0.503	0.0	0.0	0.0	0.0	0.575	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
+D4	0.0	0.541	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.46	0.0	0.46	0.0	0.0	0.0	0.0	0.46	0.0	0.0	0.0	0.0	0.402	0.0	0.0	0.0	0.0
+D5	0.0	0.0	0.541	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.541	0.46	0.0	0.0	0.0	0.0	0.0	0.541	0.0	0.0	0.0	0.402	0.0	0.0	0.0	0.0
+D6	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.541	0.46	0.0	0.0	0.0	0.0	0.0	0.0	0.46	0.0	0.0	0.0	0.541	0.402	0.0	0.0	0.0	0.0
+D7	0.575	0.0	0.0	0.676	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.575	0.0	0.0	0.0	0.575	0.0	0.0
+D8	0.0	0.0	0.0	0.0	0.541	0.0	0.0	0.0	0.0	0.0	0.402	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.46	0.0	0.0	0.0	0.46	0.541	0.0
+D9	0.575	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.575	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.676	0.0	0.0	0.0	0.0	0.0	0.0	0.676	0.0	0.0	0.0
+D10	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.676	0.575	0.0	0.503	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.676
