@@ -55,10 +55,34 @@ for tokens, contagens in zip(tokens_por_texto, bow):
 # Exibe os documentos nas linhas e as palavras do vocabulário nas colunas.
 def mostrar_matriz(titulo, matriz):
     print(f"\n{titulo}")
-    print("Texto\t" + "\t".join(vocabulario))
-    for id_documento, vetor in enumerate(matriz, start=1):
-        valores = [str(round(vetor[palavra], 3)) for palavra in vocabulario]
-        print(f"D{id_documento}\t" + "\t".join(valores))
+    tamanho_grupo = 7
+    for inicio in range(0, len(vocabulario), tamanho_grupo):
+        palavras = vocabulario[inicio:inicio + tamanho_grupo]
+        cabecalho = ["Documento"] + palavras
+        linhas = [
+            [f"D{numero}"] + [
+                str(round(vetor[palavra], 3)) for palavra in palavras
+            ]
+            for numero, vetor in enumerate(matriz, start=1)
+        ]
+        larguras = [
+            max(len(cabecalho[coluna]), *(len(linha[coluna]) for linha in linhas))
+            for coluna in range(len(cabecalho))
+        ]
+        borda = "+-" + "-+-".join("-" * largura for largura in larguras) + "-+"
+
+        print(borda)
+        print("| " + " | ".join(
+            cabecalho[coluna].ljust(larguras[coluna])
+            for coluna in range(len(cabecalho))
+        ) + " |")
+        print(borda)
+        for linha in linhas:
+            print("| " + " | ".join(
+                linha[coluna].ljust(larguras[coluna])
+                for coluna in range(len(linha))
+            ) + " |")
+        print(borda)
 
 
 print("Corpus:")
