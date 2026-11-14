@@ -1,0 +1,14 @@
+hidden_layer_sizes,max_iter,tpye,accuracy,time,warn
+100, 500, TF-IDF, 0.78, 3m 48s
+050, 500, TF-IDF, 0.78, 3m 17s 
+100, 250, TF-IDF, 0.78, 4m 50s
+050, 250, TF-IDF, 0.78, 3m 32s
+200, 1000,TF-IDF, 0.78, 6m 32s
+100, 100, TF-IDF, 0.78, 3m 14s, warnings.warn(/home/malva/Documents/half/ia/BoW-TF-IDF/.venv/lib/python3.12/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (100) reached and the optimization hasn't converged yet.
+100, 500, BOW 0.79, 4m 16s
+050, 500, BOW, 0.79, 2m 18s 
+100, 250, BOW, 0.79, 3m 22s
+050, 250, BOW, 0.79, 2m 17s
+200, 1000,BOW, 0.78, 4m 40s
+100, 100,BOW, 0.79, 2m 43s, warnings.warn(/home/malva/Documents/half/ia/BoW-TF-IDF/.venv/lib/python3.12/site-packages/sklearn/neural_network/_multilayer_perceptron.py:785: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (100) reached and the optimization hasn't converged yet.
+ 
