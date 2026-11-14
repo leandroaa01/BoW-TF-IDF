@@ -1,0 +1,6 @@
+A melhor configuração foi BOW com 50 neurônios e 250 iterações, com acurácia de 0,79 em 2m17s.
+Aumentar neurônios (200) e iterações (1000) não melhorou o desempenho e, no caso de BOW,
+até o reduziu (0,78), indicando overfitting dado o tamanho reduzido do corpus (2.000 frases).
+O TF‑IDF ficou 1 ponto percentual abaixo do BOW em todas as configurações, provavelmente porque
+a normalização pelo tamanho do documento prejudica frases curtas, onde as palavras de sentimento 
+aparecem poucas vezes e a contagem bruta carrega mais informação.
